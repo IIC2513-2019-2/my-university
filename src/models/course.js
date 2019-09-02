@@ -5,8 +5,9 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT,
   }, {});
 
-  course.associate = function associate() {
+  course.associate = function associate(models) {
     // associations can be defined here. This method receives a models parameter.
+    course.belongsToMany(models.student, { through: models.enrollment, foreignKey: 'courseId' });
   };
 
   return course;
