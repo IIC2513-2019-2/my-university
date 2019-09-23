@@ -8,7 +8,9 @@
           <th>Code</th>
           <th>Name</th>
           <th>Description</th>
-          <th colspan="2">Actions</th>
+          <% if (currentUser) { %>
+            <th colspan="2">Actions</th>
+          <% } %>
         </tr>
     </thead>
     <tbody>
@@ -17,17 +19,21 @@
           <td><%- course.code %></td>
           <td><%- course.name %></td>
           <td><%- course.description %></td>
-          <td><a href="<%- editCoursePath(course) %>">Edit</a></td>
-          <td>
-            <form action="<%- deleteCoursePath(course) %>" method="POST">
-              <input type="hidden" name="_method" value="delete" />
-              <input type="submit" value="Delete" />
-            </form>
-          </td>
+          <% if (currentUser) { %>
+            <td><a href="<%- editCoursePath(course) %>">Edit</a></td>
+            <td>
+              <form action="<%- deleteCoursePath(course) %>" method="POST">
+                <input type="hidden" name="_method" value="delete" />
+                <input type="submit" value="Delete" />
+              </form>
+            </td>
+          <% } %>
         </tr>
       <% }) %>
     </tbody>
   </table>
 <% } %>
 
-<a href="<%- newCoursePath %>">New course</a>
+<% if (currentUser) { %>
+  <a href="<%- newCoursePath %>">New course</a>
+<% } %>
