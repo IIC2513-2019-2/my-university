@@ -40,6 +40,7 @@
   "dependencies": {
     "bcrypt": "^3.0.6",
     "core-js": "^3.2.1",
+    "csv-parse": "^4.4.7",
     "faker": "^4.1.0",
     "koa": "^2.7.0",
     "koa-body": "^4.1.1",
@@ -53,6 +54,7 @@
     "nodemailer": "^6.3.0",
     "pg": "^7.12.1",
     "pg-hstore": "^2.3.3",
+    "pkgcloud": "^2.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
