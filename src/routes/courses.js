@@ -92,10 +92,12 @@ router.post('courses.load', '/upload', async (ctx) => {
 
   const fileContent = fs.readFileSync(list.path);
   const coursesRow = parse(fileContent, { columns: true, delimiter: ';' });
-  coursesRow.forEach((row) => {
+  const coursesPromises = coursesRow.map((row) => {
     const course = ctx.orm.course.build(row);
-    course.save({ fields: ['code', 'name', 'description'] });
+    return course.save({ fields: ['code', 'name', 'description'] });
   });
+
+  await Promise.all(coursesPromises);
 
   await fileStorage.upload(list);
   ctx.redirect(ctx.router.url('courses.list'));
