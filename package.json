@@ -42,6 +42,7 @@
     "core-js": "^3.2.1",
     "csv-parse": "^4.4.7",
     "faker": "^4.1.0",
+    "jsonapi-serializer": "^3.6.5",
     "koa": "^2.7.0",
     "koa-body": "^4.1.1",
     "koa-ejs": "^4.2.0",
