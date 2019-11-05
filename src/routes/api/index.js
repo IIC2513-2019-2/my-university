@@ -15,7 +15,7 @@ router.use('/auth', authApi.routes());
 router.use(jwt({ secret: process.env.JWT_SECRET, key: 'authData' }));
 router.use(async (ctx, next) => {
   if (ctx.state.authData.userId) {
-    ctx.state.currentUser = await ctx.orm.user.findById(ctx.state.authData.userId);
+    ctx.state.currentUser = await ctx.orm.user.findByPk(ctx.state.authData.userId);
   }
   return next();
 });
