@@ -20,7 +20,7 @@ router.get('api.course.show', '/:id', async (ctx) => {
   ctx.body = ctx.jsonSerializer('course', {
     attributes: ['code', 'name', 'description'],
     topLevelLinks: {
-      self: `${ctx.origin}${ctx.router.url('api.courses.list')}:id`,
+      self: `${ctx.origin}${ctx.router.url('api.course.show', { id: course.id })}`,
     },
   }).serialize(course);
 });
